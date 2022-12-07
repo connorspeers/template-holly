@@ -1,0 +1,76 @@
+.gallery {
+  transition: all 0.25s;
+}
+.gallery.--blurred {
+  filter: blur(5px) grayscale(25%);
+  opacity: 0.5;
+}
+
+.gallery-items {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 2.25rem;
+  font-size: clamp(1.5rem, 1.75rem, 2.5vw);
+}
+
+.gallery-items a {
+  display: block;
+  text-decoration: none;
+  margin-bottom: 2rem;
+  width: 100%;
+  padding-top: 1rem;
+}
+.gallery-items a:target {
+  outline: none;
+}
+@media (min-width: 768px) {
+  .gallery-items a {
+    width: calc(50% - 1.75rem);
+  }
+}
+
+.gallery-image {
+  width: 100%;
+  height: 30rem;
+  position: relative;
+}
+.gallery-image.--hide {
+  opacity: 0;
+}
+.gallery-items a:target .gallery-image {
+  animation-name: bounce;
+  animation-duration: 0.5s;
+  animation-delay: 0.25s;
+  outline: none;
+}
+@keyframes bounce {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.gallery-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  background: var(--light-gray);
+  color: transparent;
+}
+
+.gallery-text {
+  font-size: 1.1em;
+  text-align: left;
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+  line-height: 1;
+}
+
+.gallery-subtext {
+  font-size: 0.75em;
+  text-align: left;
+  margin-top: 0;
+  margin-bottom: 0;
+}

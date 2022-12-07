@@ -1,0 +1,125 @@
+:root {
+  --header-height: 2.25rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  height: var(--header-height);
+  margin-bottom: 3.5rem;
+  color: var(--black);
+}
+
+.header h1 {
+  opacity: 1;
+  letter-spacing: 0.02em;
+  line-height: var(--header-height);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  transition: all 0.25s;
+  font-weight: normal;
+}
+.header h1.--hide {
+  transform: translate(0, -100%);
+  user-select: none;
+  opacity: 0;
+}
+@media (min-width: 768px) {
+  .header h1 {
+    position: relative;
+  }
+}
+
+.header a {
+  text-decoration: none;
+}
+
+.header nav {
+  display: flex;
+  align-items: center;
+  visibility: hidden;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  transform: translate(0, 100%);
+  opacity: 0;
+  transition: all 0.25s;
+  font-size: clamp(1rem, 1.5rem, 5.5vw);
+}
+.header nav.--open {
+  visibility: visible;
+  transform: none;
+  opacity: 1;
+}
+@media (min-width: 768px) {
+  .header nav {
+    width: auto;
+    flex: 1;
+    justify-content: flex-end;
+    visibility: visible;
+    transform: none;
+    opacity: 1;
+    transition: unset;
+  }
+}
+
+.header nav a {
+  margin-right: 2rem;
+}
+.header nav a:last-child {
+  margin-right: 0;
+}
+.header nav a.--current {
+  text-decoration: underline;
+}
+@media (min-width: 768px) {
+  .header nav a {
+    opacity: 1;
+  }
+}
+
+.header button {
+  width: var(--header-height);
+  height: var(--header-height);
+  cursor: pointer;
+  border: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: transparent;
+  z-index: 2;
+  padding: 0;
+}
+.header button::before,
+.header button::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 100%;
+  position: absolute;
+  top: calc(50% - 1.5px);
+  margin-top: -0.5rem;
+  background: var(--black);
+  border-radius: 2px;
+  transition: all 0.25s;
+}
+.header button::after {
+  margin-top: 0.5rem;
+}
+.header button.--open::before,
+.header button.--open::after {
+  margin-top: 0;
+  transform: rotate(135deg);
+}
+.header button.--open::after {
+  transform: rotate(-135deg);
+}
+@media (min-width: 768px) {
+  .header button {
+    display: none;
+  }
+}

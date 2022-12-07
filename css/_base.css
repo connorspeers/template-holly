@@ -1,0 +1,139 @@
+@font-face {
+  font-family: "CrimsonPro var";
+  font-display: swap;
+  src: url(/fonts/crimson-pro/crimson-pro_wght.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --white: #fcfafa;
+  --black: black;
+  --gray: #888;
+  --dark-gray: #bbb;
+  --light-gray: #eee;
+  --red: #f28482;
+}
+
+html {
+  font-family: "CrimsonPro var", Georgia, serif;
+  font-size: 16px;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: var(--white);
+  color: var(--black);
+  height: 100%;
+  overflow: auto;
+}
+
+a {
+  color: inherit;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5rem;
+}
+
+p {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  width: 45rem;
+  max-width: 100%;
+  margin: 0 auto;
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--black);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 2.25rem, 6vw);
+  font-weight: normal;
+  margin: 0 auto;
+  margin-top: 2rem;
+  margin-bottom: 3.5rem;
+  letter-spacing: 0.02em;
+  max-width: 45rem;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--black);
+}
+
+h3 {
+  font-size: clamp(1rem, 1.25rem, 3vw);
+  font-weight: normal;
+  margin: 0 auto;
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.03em;
+  max-width: 45rem;
+  line-height: 1.5;
+  text-align: center;
+  opacity: 0.5;
+  color: var(--black);
+}
+h2 + h3 {
+  margin-top: -3.25rem;
+}
+
+form {
+  margin: 0 auto;
+  max-width: 35rem;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  background: var(--black);
+  color: var(--white);
+  padding: 0.5em 1em;
+  font: inherit;
+  border: 0;
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+button:disabled {
+  cursor: default;
+  opacity: 0.35;
+}
+button[type="submit"] {
+  transition: all 0.25s;
+}
+button.--fail {
+  background-color: var(--red);
+}
+
+ul {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  max-width: 45rem;
+  margin: 0 auto;
+  padding: 0 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+ul li:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+img {
+  user-select: none;
+}
+
+video {
+  width: 100%;
+  max-width: 45rem;
+  margin: 2rem auto;
+}

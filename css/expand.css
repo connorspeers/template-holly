@@ -1,0 +1,104 @@
+.expand,
+.expand-underlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+.expand.--transition {
+  overflow: hidden;
+}
+
+.expand-underlay {
+  z-index: -1;
+  cursor: pointer;
+}
+
+/* .expand-image styles are React controlled */
+
+.expand-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.expand-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.expand-image button {
+  background: #0008;
+  color: var(--white);
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  padding: 0;
+  transition: all 0.15s;
+  opacity: 0;
+}
+.expand-image button.--show {
+  opacity: 1;
+}
+
+.expand-image button::before,
+.expand-image button::after {
+  content: "";
+  display: block;
+  width: 60%;
+  height: 2px;
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 20%;
+  background: var(--white);
+  transform: rotate(45deg);
+}
+.expand-image button::after {
+  transform: rotate(-45deg);
+}
+
+.expand-desc {
+  background: #0008;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 0.6rem;
+  transition: opacity 0.15s;
+  opacity: 0;
+  min-width: 6rem;
+  max-width: 90%;
+}
+.expand-desc.--show {
+  opacity: 1;
+}
+
+.expand-desc h2,
+.expand-desc h3 {
+  text-align: left;
+  font-size: 1.1rem;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+  margin-top: 0;
+}
+
+.expand-desc h3 {
+  font-size: 0.8rem;
+  line-height: 1;
+  margin-bottom: 0;
+  opacity: 0.75;
+}

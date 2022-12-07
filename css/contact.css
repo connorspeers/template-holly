@@ -1,0 +1,27 @@
+.contact-submit {
+  position: relative;
+  width: 100%;
+  margin-top: 1.5rem;
+  height: 5rem;
+}
+
+.contact-submit > * {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition: all 0.25s;
+  opacity: 1;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+.contact-submit > *.--hide {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.9);
+  z-index: -1;
+}
+
+.contact-captchaError {
+  color: var(--red);
+  text-align: center;
+  margin-bottom: 0.5em;
+}

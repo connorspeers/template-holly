@@ -1,0 +1,54 @@
+.input {
+  display: block;
+  position: relative;
+  padding-top: 1.05em;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.input::before {
+  content: attr(data-placeholder);
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 0.75em;
+  z-index: 0;
+  transition: all 0.25s;
+  opacity: 0;
+  color: var(--black);
+}
+.input.--filled::before {
+  opacity: 1;
+}
+.input.--error::before {
+  color: var(--red);
+}
+
+.input input,
+.input textarea {
+  display: block;
+  z-index: 1;
+  background: white;
+  border: none;
+  position: relative;
+  font: inherit;
+  padding: 0.25em 0.5em;
+  width: 100%;
+  max-width: 100%;
+  background-color: var(--light-gray);
+  border: 2px solid transparent;
+  outline: 0;
+  line-height: 1.5;
+}
+.input input:focus,
+.input textarea:focus {
+  border-color: var(--black);
+}
+.input.--error input,
+.input.--error textarea {
+  border-color: var(--red);
+}
+
+.input textarea {
+  min-height: 20rem;
+}
